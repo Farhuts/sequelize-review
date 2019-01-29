@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const {User, Tweet} = require('./db/models'); 
 
-
+//write a route to the path /:userId where you return all tweets from that user
 router.get('/:userId', async (req, res, next) => { 
     try {
         const tweets = await Tweet.findAll({ 
@@ -15,6 +15,9 @@ router.get('/:userId', async (req, res, next) => {
     }
 })
 
+//write a post route to post a new tweet from a /:userId 
+//make sure to set the association! 
+//send back the newly created tweet 
 router.post('/:userId', async (req, res, next) => { 
     try {
         const tweet = await Tweet.create({ //create not build
@@ -28,6 +31,8 @@ router.post('/:userId', async (req, res, next) => {
     }
 })
 
+//write a route to update a tweet 
+//return the updated tweet 
 router.put(':/userId/tweets/:tweetId', async (req, res, next) => { 
    try {
        const update = await Tweet.update(req.body, { 
