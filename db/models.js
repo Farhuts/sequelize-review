@@ -19,7 +19,10 @@ const User = db.define('user', {
             notEmpty: true
         },
         get() { 
-            return this.getDataValue('name').toLowerCase(); 
+            return this.getDataValue('email').toLowerCase(); 
+        },
+        set() {
+            
         }
     }, 
     password: { 
